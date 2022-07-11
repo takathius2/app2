@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  root to: 'homes#top'
   devise_for :users
-  root to: "homes#top"
+  resources :post_images, only: [:new, :create, :index, :show]
   get 'homes/about', to: 'homes#show', as: :about
   ##about_pathとabout_urlが名前付きルーティングヘルパーとして作成される
   ##about_pathを呼び出すと/homes/aboutが返される
